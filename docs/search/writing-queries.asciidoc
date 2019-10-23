@@ -22,12 +22,11 @@ and is exposed in NEST in the form of both a Fluent API and an Object Initialize
 ==== Match All query
 
 The simplest of queries is the {ref_current}/query-dsl-match-all-query.html[match_all] query;
-this will return all documents, giving them all a `_score` of 1.0
+this will return the first 10 documents, giving them all a `_score` of 1.0
 
 [NOTE]
 --
-Not _all_ of the matching documents are returned in the one response; by default, only the first ten documents
-are returned. You can use `from` and `size` to paginate results.
+You can use `.From()` and `.Size()` to paginate results or retrieve more documents from the initial load. Note that `.From()` + `.Size()` can not be more than the `index.max_result_window` index setting, which defaults to 10,000.
 
 --
 
